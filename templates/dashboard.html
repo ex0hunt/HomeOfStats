@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Of Stats</title>
+</head>
+<body>
+{% for c in clients %}
+    <h2>{{ c.name }}</h2>
+    <h3>Temp</h3>
+    <table cellspacing="2" border="1" cellpadding="5">
+        <tr>
+            {% for t in c.temperature reversed %}
+                <td><b>{{ t.datetime }}</b></td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for t in c.temperature reversed %}
+                <td>{{ t.value }}C</td>
+            {% endfor %}
+        </tr>
+    </table>
+
+    <h3>Humidity</h3>
+    <table cellspacing="2" border="1" cellpadding="5">
+        <tr>
+            {% for t in c.humidity reversed %}
+                <td><b>{{ t.datetime  }}</b></td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for t in c.humidity reversed %}
+                <td>{{ t.value }}%</td>
+            {% endfor %}
+        </tr>
+    </table>
+    <hr/>
+{% endfor %}
+</body>
+</html>
